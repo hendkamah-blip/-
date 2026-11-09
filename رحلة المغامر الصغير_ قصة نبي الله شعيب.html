@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>رحلة المغامر الصغير: قصة نبي الله شعيب</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+:root{--bg:#fdf3e1;--card:#fff;--ink:#3b2f1e;--mute:#7a6a52;--line:#f0d9a8;--amber:#e69a1c;--amber-d:#b9740a;--soft:#fff6e0;--ok:#0f8a5f;--bad:#c8344a;--track:#ecdcb8;--ring:#2563eb;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1810;--card:#2a2318;--ink:#f6ecd8;--mute:#c9b88f;--line:#5a4720;--amber:#f0a92e;--amber-d:#ffd27a;--soft:#3a2f1a;--ok:#4ad49b;--bad:#ff7a8c;--track:#4a3d22;--ring:#7ab0ff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1d1810;--card:#2a2318;--ink:#f6ecd8;--mute:#c9b88f;--line:#5a4720;--amber:#f0a92e;--amber-d:#ffd27a;--soft:#3a2f1a;--ok:#4ad49b;--bad:#ff7a8c;--track:#4a3d22;--ring:#7ab0ff;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font-family:'Tajawal',Tahoma,Arial,sans-serif;font-size:18px;line-height:1.6}
+button,input{font-family:inherit;color:inherit}
+button{cursor:pointer;user-select:none}
+button:focus-visible,input:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:4px solid var(--amber);padding:10px 16px}
+.hd{max-width:760px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.who{display:flex;align-items:center;gap:10px}
+.av{width:46px;height:46px;border-radius:50%;background:var(--soft);border:2px solid var(--amber);display:grid;place-items:center;font-size:26px}
+.who b{display:block;font-size:17px}.who small{color:var(--mute);font-weight:700}
+.pill{display:inline-flex;gap:6px;align-items:center;background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-weight:800;margin-inline-start:8px}
+.bar{max-width:760px;margin:10px auto 0;height:12px;background:var(--track);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--amber);transition:width .5s}
+main{flex:1;display:grid;place-items:center;padding:18px}
+.box{width:100%;max-width:760px;background:var(--card);border:4px solid var(--line);border-radius:28px;padding:26px 22px;text-align:center}
+h1{font-size:2rem;line-height:1.3;margin:.4em 0;color:var(--amber-d);font-weight:900}
+h2{font-size:1.5rem;margin:.3em 0;font-weight:800}
+p{margin:.4em 0;color:var(--mute);font-weight:500}
+.tag{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:10px;font-weight:800;font-size:15px;color:var(--amber-d)}
+.hero{font-size:4rem}
+label{display:block;font-weight:800;margin:14px 0 6px}
+.form{max-width:380px;margin:18px auto}
+input[type=text]{width:100%;text-align:center;font-size:1.3rem;font-weight:800;padding:12px;border:2px solid var(--line);border-radius:16px;background:var(--bg);user-select:text;-webkit-user-select:text}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g{padding:12px;border:2px solid var(--line);border-radius:16px;background:var(--soft);font-weight:800;font-size:1.05rem}
+.g[aria-pressed=true]{border-color:var(--amber);box-shadow:0 0 0 4px var(--amber)}
+.big{width:100%;max-width:380px;padding:14px;border:0;border-radius:18px;background:var(--amber);color:#2b1c00;font-weight:900;font-size:1.4rem;box-shadow:0 5px 0 var(--amber-d)}
+.big:active{transform:translateY(3px);box-shadow:0 2px 0 var(--amber-d)}
+.opts{display:grid;gap:12px;margin:20px 0}
+.opts.row{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.opt{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px;border:2px solid var(--line);border-radius:18px;background:var(--soft);font-weight:800;font-size:1.15rem;text-align:start;transition:transform .15s}
+.opt:hover:not(:disabled){transform:translateY(-3px);border-color:var(--amber)}
+.opt .ic{font-size:2rem}
+.opt:disabled{opacity:.45;cursor:not-allowed}
+.opt.right{border-color:var(--ok);background:var(--ok);color:#fff;opacity:1}
+.fb{min-height:3em;font-weight:800;font-size:1.1rem;margin-top:6px}
+.fb.ok{color:var(--ok)}.fb.no{color:var(--bad)}
+.ev{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;border:2px solid var(--line);border-radius:18px;background:var(--soft);font-weight:700;font-size:1.05rem;text-align:start}
+.ev b{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--track);font-weight:900}
+.ev.on b{background:var(--amber);color:#2b1c00}
+.link{background:none;border:0;color:var(--mute);text-decoration:underline;font-size:.95rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:18px 0}
+.st{padding:12px;border:1px solid var(--line);border-radius:16px;background:var(--soft)}
+.st small{display:block;color:var(--mute);font-weight:700}.st b{font-size:1.4rem}
+.badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:12px 0 20px}
+.bd{padding:12px;border:1px solid var(--line);border-radius:16px;background:var(--card);font-weight:800;font-size:14px}
+.bd span{display:block;font-size:2rem}
+.bd.lock{filter:grayscale(1);opacity:.45}
+.acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.sec{padding:12px 22px;border:2px solid var(--line);border-radius:14px;background:var(--soft);font-weight:800}
+footer{text-align:center;padding:12px 16px;font-size:13px;font-weight:700;color:var(--mute);border-top:1px solid var(--line);background:var(--card)}
+.hide{display:none!important}
+#cert{display:none}
+@media print{
+ body>*:not(#cert){display:none!important}
+ #cert{display:flex!important;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:95vh;margin:10px;border:12px double #b9740a;padding:30px;color:#3b2f1e;background:#fff}
+ #cert h1{font-size:3rem;color:#b9740a}#cert p{color:#3b2f1e;font-size:1.4rem}#cert .nm{font-size:2.6rem;font-weight:900;margin:.3em 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header id="hdr" class="hide"><div class="hd">
+ <div class="who"><div class="av" id="av">👦</div><div><b id="hi"></b><small id="lv"></small></div></div>
+ <div><span class="pill">⭐ <span id="sc">0</span></span><span class="pill">❤️ <span id="lf">3</span></span></div>
+</div><div class="bar"><i id="pb"></i></div></header>
+
+<main><div class="box" id="box"></div></main>
+
+<footer>تم التطوير بواسطة: هند خالد خليفة أحمد | الصف الثاني الابتدائي الترم الأول - مادة التربية الإسلامية</footer>
+
+<section id="cert"></section>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+
+var AC,S={name:'',boy:null,stars:0,lives:3,errors:0,lvl:0,mis:[0,0,0,0],busy:false,order:[]};
+
+function snd(ok){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+ var o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime;o.connect(g);g.connect(AC.destination);
+ if(ok){o.type='sine';o.frequency.setValueAtTime(523,t);o.frequency.setValueAtTime(659,t+.1);o.frequency.setValueAtTime(784,t+.2)}
+ else{o.type='sawtooth';o.frequency.setValueAtTime(220,t);o.frequency.setValueAtTime(180,t+.15)}
+ g.gain.setValueAtTime(.15,t);g.gain.exponentialRampToValueAtTime(.01,t+.4);o.start();o.stop(t+.4)}catch(e){}}
+function boom(n){try{if(window.confetti)confetti({particleCount:n,spread:75,origin:{y:.6}})}catch(e){}}
+
+var L=[
+{tag:'المستوى الأول 🗺️',badge:['🗺️','المغامر الجغرافي'],full:10,
+ t:function(n){return 'أين توجد قرية قوم شعيب يا '+n+'؟'},p:'اختر البوابة الصحيحة للوصول للقرية التي عاش فيها قوم شعيب:',row:1,
+ o:[{i:'🏛️',t:'مكة'},{i:'🏜️',t:'مدين',ok:1},{i:'🏰',t:'القادسية'}],
+ good:'ممتاز! أرسل الله شعيباً عليه السلام إلى قرية مدين 🌟',bad:'محاولة طيبة! فكّر مرة أخرى في اسم المكان...'},
+{tag:'المستوى الثاني ⚖️',badge:['⚖️','التاجر الأمين'],full:10,
+ t:function(n){return 'استخرج السلوك الخاطئ في السوق يا '+n+'!'},p:'كان قوم مدين يعملون بالتجارة، لكنهم يفعلون سلوكاً سيئاً يغضب الله. اضغط عليه:',row:1,
+ o:[{i:'⚖️',t:'الصدق والعدل في الوزن',ok:0},{i:'📉',t:'الغش وإنقاص الميزان',ok:1}],
+ good:'أحسنت! الغش في الميزان سلوك سيئ حرّمه الله ⚖️',bad:'هذا سلوك طيب ومحبوب! ابحث عن السلوك الخاطئ.'},
+{tag:'المستوى الثالث 🎁',badge:['🔑','الناصح الحكيم'],full:10,
+ t:function(n){return 'افتح صندوق النصائح يا '+n+'!'},p:'لماذا نصح سيدنا شعيب قومه بالتوقف عن الغش وقطع الطريق؟',row:0,
+ o:[{i:'✨',t:'لكي يعبدوا الله الواحد، وينشروا الأمانة والعدل ولا يؤذوا الناس.',ok:1},{i:'🛑',t:'لكي يتركوا التجارة نهائياً ولا يبيعوا شيئاً في السوق.'},{i:'💰',t:'لكي يزيدوا الأسعار على الناس ويأخذوا أموالهم.'}],
+ good:'رائع جداً! فتحت صندوق الكنز المليء بالنجوم 🎁⭐',bad:'فكّر جيداً! لماذا ينصح الأنبياء أقوامهم دائماً؟'},
+{tag:'المستوى الرابع 🚂',badge:['🏆','بطل القصة'],full:20,
+ t:function(n){return 'رتّب قطار القصة يا '+n+'!'},p:'اضغط على أحداث القصة بالترتيب الصحيح (1 ثم 2 ثم 3):',
+ ev:['دعا سيدنا شعيب قومه لترك الغش وعبادة الله وحده.','سخر قوم مدين من النصيحة واستمروا في العناد والظلم.','أنزل الله الصيحة على الظالمين وأنجى سيدنا شعيباً والمؤمنين.']}
+];
+
+function head(){
+ $('sc').textContent=S.stars;$('lf').textContent=S.lives;
+ $('lv').textContent='المستوى '+Math.min(S.lvl+1,4)+' من 4';
+ $('pb').style.width=(S.lvl/4*100)+'%';
+}
+
+function welcome(){
+ $('hdr').classList.add('hide');
+ $('box').innerHTML='<div class="hero">🏜️</div><h1>رحلة المغامر الصغير: قصة نبي الله شعيب</h1>'+
+ '<p>مرحباً بك! هل أنت جاهز للتعلم والمغامرة وجمع الشارات؟</p>'+
+ '<div class="form"><label for="nm">اكتب اسمك هنا:</label><input type="text" id="nm" maxlength="20" autocomplete="off" placeholder="اسمك الجميل...">'+
+ '<label>أنا:</label><div class="two"><button type="button" class="g" id="gb" aria-pressed="false">👦 بطل</button><button type="button" class="g" id="gg" aria-pressed="false">👧 بطلة</button></div>'+
+ '<div class="fb no" id="werr" role="alert"></div></div>'+
+ '<button class="big" id="go">ابدأ اللعب الآن! 🚀</button>';
+ function pick(b){S.boy=b;$('gb').setAttribute('aria-pressed',b);$('gg').setAttribute('aria-pressed',!b)}
+ $('gb').onclick=function(){pick(true)};$('gg').onclick=function(){pick(false)};
+ $('go').onclick=function(){
+  var n=$('nm').value.trim();
+  if(!n){$('werr').textContent='اكتب اسمك أولاً من فضلك.';return}
+  if(S.boy===null){$('werr').textContent='اختر: بطل أو بطلة.';return}
+  S.name=n;S.stars=0;S.lives=3;S.errors=0;S.lvl=0;S.mis=[0,0,0,0];
+  $('av').textContent=S.boy?'👦':'👧';$('hi').textContent='يلا بينا نلعب يا '+n+'! ✨';
+  $('hdr').classList.remove('hide');level();
+ };
+}
+
+function level(){
+ if(S.lvl>3)return done();
+ S.busy=false;S.order=[];head();
+ var d=L[S.lvl],h='<div class="tag"><span>'+d.tag+'</span><span>هدف '+(S.lvl+1)+' من 4</span></div><h2>'+esc(d.t(S.name))+'</h2><p>'+d.p+'</p>';
+ if(d.o){
+  h+='<div class="opts'+(d.row?' row':'')+'" id="ops"></div>';
+ }else{
+  h+='<div class="opts" id="ops"></div><button class="link" id="rs">إعادة محاولة الترتيب</button>';
+ }
+ h+='<div class="fb" id="fb" role="status" aria-live="polite"></div>';
+ $('box').innerHTML=h;
+ var ops=$('ops');
+ if(d.o){
+  shuffle(d.o).forEach(function(o){
+   var b=document.createElement('button');b.className='opt';
+   b.innerHTML='<span class="ic">'+o.i+'</span><span>'+o.t+'</span>';
+   b.onclick=function(){answer(b,o.ok)};ops.appendChild(b);
+  });
+ }else{
+  shuffle(d.ev.map(function(t,i){return{t:t,n:i+1}})).forEach(function(e){
+   var b=document.createElement('button');b.className='ev';
+   b.innerHTML='<span>'+e.t+'</span><b>؟</b>';b.onclick=function(){pickEv(b,e.n)};ops.appendChild(b);
+  });
+  $('rs').onclick=function(){if(!S.busy)level()};
+ }
+}
+
+function fb(msg,ok){var f=$('fb');f.className='fb '+(ok?'ok':'no');f.textContent=msg}
+
+function lose(){
+ S.errors++;S.lives--;snd(false);
+ if(S.lives<=0){S.lives=3;return true}
+ return false;
+}
+
+function win(full){
+ var got=S.mis[S.lvl]?Math.ceil(full/2):full;
+ S.stars+=got;snd(true);S.busy=true;S.lvl++;head();
+}
+
+function answer(btn,ok){
+ if(S.busy)return;
+ var d=L[S.lvl];
+ if(ok){
+  btn.classList.add('right');
+  Array.prototype.forEach.call($('ops').children,function(b){b.disabled=true});
+  win(d.full);fb(d.good,true);boom(60);setTimeout(level,1600);
+ }else{
+  S.mis[S.lvl]++;btn.disabled=true;
+  var refill=lose();head();
+  fb(refill?'لا بأس، كل البطل يتعلم! أعطيناك قلوباً جديدة ❤️❤️❤️ حاول مرة أخرى.':d.bad,false);
+ }
+}
+
+function pickEv(btn,n){
+ if(S.busy||S.order.indexOf(n)>-1)return;
+ S.order.push(n);btn.classList.add('on');btn.querySelector('b').textContent=S.order.length;
+ if(S.order.length<3)return;
+ var ok=S.order[0]===1&&S.order[1]===2&&S.order[2]===3;
+ if(ok){win(L[3].full);fb('عاش! رتبت القصة بشكل ممتاز جداً 🚂🎉',true);boom(120);setTimeout(level,2000)}
+ else{S.mis[3]++;S.busy=true;var r=lose();head();
+  fb(r?'لا بأس! قلوب جديدة لك ❤️❤️❤️ سنعيد الترتيب.':'الترتيب غير صحيح! اقرأ القصة بالترتيب الزمني وحاول من جديد.',false);
+  setTimeout(level,1800)}
+}
+
+function done(){
+ $('hdr').classList.add('hide');
+ var earned=S.mis.filter(function(m){return m===0}).length,pct=Math.round(earned/4*100);
+ var hero=S.boy?'البطل':'البطلة';
+ var bd=L.map(function(d,i){return '<div class="bd'+(S.mis[i]?' lock':'')+'"><span>'+d.badge[0]+'</span>'+d.badge[1]+'</div>'}).join('');
+ var msg=earned===4?'أجبت عن كل الأسئلة من أول مرة!':'أنهيت كل المستويات! الشارات الرمادية تنتظرك في محاولة جديدة 💪';
+ $('box').innerHTML='<div class="hero">🏆</div><h1>مبروك يا '+hero+' '+esc(S.name)+'!</h1><p>'+msg+'</p>'+
+ '<div class="stats"><div class="st"><small>⭐ النجوم</small><b>'+S.stars+'</b></div><div class="st"><small>❌ الأخطاء</small><b>'+S.errors+'</b></div>'+
+ '<div class="st"><small>🏅 الشارات</small><b>'+earned+' / 4</b></div><div class="st"><small>🎯 من أول محاولة</small><b>'+pct+'%</b></div></div>'+
+ '<h2>شارات الإنجاز</h2><div class="badges">'+bd+'</div>'+
+ '<div class="acts"><button class="big" style="max-width:260px;font-size:1.1rem" id="pr">🖨️ طباعة شهادة التقدير</button><button class="sec" id="ag">إعادة اللعب 🔄</button></div>';
+ $('pb').style.width='100%';
+ $('cert').innerHTML='<h1>شهادة تقدير</h1><p>تشهد معلمة التربية الإسلامية بأن</p><div class="nm">'+esc(S.name)+'</div>'+
+ '<p>أتمّ بنجاح درس «قصة نبي الله شعيب عليه السلام» وجمع '+S.stars+' نجمة و'+earned+' من 4 شارات</p><p>'+new Date().toLocaleDateString('ar-EG')+'</p>'+
+ '<p>الصف الثاني الابتدائي - الترم الأول - مادة التربية الإسلامية</p>';
+ $('pr').onclick=function(){window.print()};$('ag').onclick=welcome;
+ boom(160);
+}
+welcome();
+</script>
+</body>
+</html>
